@@ -1,9 +1,10 @@
 import "./App.css";
+import { Home } from "./pages";
 
 function App() {
   return (
-    <div>
-      <h1>WELOCOME TO SNOWFLIX</h1>
+    <div className="bg-clr-gray-800 h-screen p-rel">
+      <Home />
     </div>
   );
 }
