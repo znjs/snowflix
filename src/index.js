@@ -1,18 +1,23 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
-import "./index.css";
-import App from "./App";
-import { makeServer } from "./server";
+import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
+import App from "./App";
+import { AuthProvider, VideoProvider } from "./context";
+import "./index.css";
+import { makeServer } from "./server";
 
 // Call make Server
 makeServer();
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
+ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <AuthProvider>
+        <VideoProvider>
+          <App />
+        </VideoProvider>
+      </AuthProvider>
     </BrowserRouter>
-  </React.StrictMode>
+  </React.StrictMode>,
+  document.getElementById("root"),
 );
