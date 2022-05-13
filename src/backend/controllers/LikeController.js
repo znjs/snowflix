@@ -20,7 +20,7 @@ export const getLikedVideosHandler = function (schema, request) {
         {},
         {
           errors: ["The email you entered is not Registered. Not Found error"],
-        }
+        },
       );
     }
     return new Response(200, {}, { likes: user.likes });
@@ -30,7 +30,7 @@ export const getLikedVideosHandler = function (schema, request) {
       {},
       {
         error,
-      }
+      },
     );
   }
 };
@@ -51,7 +51,7 @@ export const addItemToLikedVideos = function (schema, request) {
         {},
         {
           errors: ["The video is already in your liked videos"],
-        }
+        },
       );
     }
     user.likes.push(video);
@@ -62,7 +62,7 @@ export const addItemToLikedVideos = function (schema, request) {
     {},
     {
       errors: ["The email you entered is not Registered. Not Found error"],
-    }
+    },
   );
 };
 
@@ -82,6 +82,6 @@ export const removeItemFromLikedVideos = function (schema, request) {
   return new Response(
     404,
     {},
-    { errors: ["The user you request does not exist. Not Found error."] }
+    { errors: ["The user you request does not exist. Not Found error."] },
   );
 };

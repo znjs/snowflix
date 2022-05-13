@@ -1,6 +1,7 @@
-import { v4 as uuid } from "uuid";
 import { Response } from "miragejs";
+import { v4 as uuid } from "uuid";
 import { formatDate } from "../utils/authUtils";
+
 const sign = require("jwt-encode");
 /**
  * All the routes related to Auth are present here.
@@ -24,7 +25,7 @@ export const signupHandler = function (schema, request) {
         {},
         {
           errors: ["Unprocessable Entity. Email Already Exists."],
-        }
+        },
       );
     }
     const _id = uuid();
@@ -49,7 +50,7 @@ export const signupHandler = function (schema, request) {
       {},
       {
         error,
-      }
+      },
     );
   }
 };
@@ -68,14 +69,11 @@ export const loginHandler = function (schema, request) {
       return new Response(
         404,
         {},
-        { errors: ["The email you entered is not Registered. Not Found error"] }
+        { errors: ["The email you entered is not Registered. Not Found error"] },
       );
     }
     if (password === foundUser.password) {
-      const encodedToken = sign(
-        { _id: foundUser._id, email },
-        process.env.REACT_APP_JWT_SECRET
-      );
+      const encodedToken = sign({ _id: foundUser._id, email }, process.env.REACT_APP_JWT_SECRET);
       foundUser.password = undefined;
       return new Response(200, {}, { foundUser, encodedToken });
     }
@@ -83,10 +81,8 @@ export const loginHandler = function (schema, request) {
       401,
       {},
       {
-        errors: [
-          "The credentials you entered are invalid. Unauthorized access error.",
-        ],
-      }
+        errors: ["The credentials you entered are invalid. Unauthorized access error."],
+      },
     );
   } catch (error) {
     return new Response(
@@ -94,7 +90,7 @@ export const loginHandler = function (schema, request) {
       {},
       {
         error,
-      }
+      },
     );
   }
 };

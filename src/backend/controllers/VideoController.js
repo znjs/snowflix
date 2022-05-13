@@ -19,7 +19,7 @@ export const getAllVideosHandler = function () {
       {},
       {
         error,
-      }
+      },
     );
   }
 };
@@ -47,7 +47,7 @@ export const getVideoHandler = function (schema, request) {
       {},
       {
         error,
-      }
+      },
     );
   }
 };

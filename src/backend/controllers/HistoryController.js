@@ -20,7 +20,7 @@ export const getHistoryVideosHandler = function (schema, request) {
         {},
         {
           errors: ["The email you entered is not Registered. Not Found error"],
-        }
+        },
       );
     }
     return new Response(200, {}, { history: user.history });
@@ -30,7 +30,7 @@ export const getHistoryVideosHandler = function (schema, request) {
       {},
       {
         error,
-      }
+      },
     );
   }
 };
@@ -50,7 +50,7 @@ export const addVideoToHistoryHandler = function (schema, request) {
         {},
         {
           errors: ["The email you entered is not Registered. Not Found error"],
-        }
+        },
       );
     }
     const { video } = JSON.parse(request.requestBody);
@@ -60,7 +60,7 @@ export const addVideoToHistoryHandler = function (schema, request) {
         {},
         {
           errors: ["The video is already in your history"],
-        }
+        },
       );
     }
     user.history.push(video);
@@ -71,7 +71,7 @@ export const addVideoToHistoryHandler = function (schema, request) {
       {},
       {
         error,
-      }
+      },
     );
   }
 };
@@ -90,7 +90,7 @@ export const removeVideoFromHistoryHandler = function (schema, request) {
         {},
         {
           errors: ["The email you entered is not Registered. Not Found error"],
-        }
+        },
       );
     }
     const videoId = request.params.videoId;
@@ -103,7 +103,7 @@ export const removeVideoFromHistoryHandler = function (schema, request) {
       {},
       {
         error,
-      }
+      },
     );
   }
 };
@@ -122,7 +122,7 @@ export const clearHistoryHandler = function (schema, request) {
         {},
         {
           errors: ["The email you entered is not Registered. Not Found error"],
-        }
+        },
       );
     }
     this.db.users.update({ history: [] });
@@ -133,7 +133,7 @@ export const clearHistoryHandler = function (schema, request) {
       {},
       {
         error,
-      }
+      },
     );
   }
 };
