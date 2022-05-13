@@ -3,6 +3,22 @@
   --clr-lightgray: #d3d3d3;
 }
 
+#light .clr-gray-900 {
+  color: #e5e7eb;
+}
+
+#light .bg-clr-gray-900 {
+  background-color: #e5e7eb;
+}
+
+#light .clr-gray-50 {
+  color: #111827;
+}
+
+#light .bg-clr-gray-50 {
+  background-color: #111827;
+}
+
 * {
   padding: 0;
   margin: 0;
