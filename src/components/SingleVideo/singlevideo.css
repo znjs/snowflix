@@ -1,0 +1,15 @@
+.singleVideo-container {
+    width: 95%;
+    margin-inline: auto;
+    margin-top: 1rem;
+}
+
+.container-wrapper {
+    height: calc(100vh - 56px);
+    overflow: auto;
+    padding-bottom: 1.5rem;
+}
+
+.divider {
+    border: 1px solid gray;
+}
