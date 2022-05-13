@@ -1,0 +1,12 @@
+export { addToHistory } from "./addToHistory";
+export { getFromHistory } from "./getFromHistory";
+export { deleteFromHistory } from "./deleteFromHistory";
+export { addToLikedVideo } from "./addToLikedVideo";
+export { clearHistory } from "./clearHistory";
+export { deleteFromLiked } from "./deleteFromLiked";
+export { addToWatchlater } from "./addToWatchlater";
+export { createNewPlaylist } from "./createNewPlaylist";
+export { addVideoToPlaylist } from "./addVideoToPlaylist";
+export { removeVideoFromPlaylist } from "./removeVideoFromPlaylist";
+export { deletePlaylist } from "./deletePlaylist";
+export { removeFromWacthlater } from "./removeFromWatchlater";
