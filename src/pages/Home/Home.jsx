@@ -1,29 +1,32 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
-import {
-  Aside,
-  Explore,
-  History,
-  Navbar,
-  Playlist,
-  Watchlater,
-} from "../../components";
+import { Outlet } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { Aside, Navbar } from "../../components";
 import "./home.css";
 
-function Home() {
+function Home({ changeTheme, theme }) {
   return (
-    <div>
-      <Navbar />
-      <div className="main-container fx">
+    <>
+      <ToastContainer
+        position='top-right'
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
+      <Navbar changeTheme={changeTheme} theme={theme} />
+      <div className='main-container fx'>
         <Aside />
-        <Routes>
-          <Route path="/" element={<Explore />} />
-          <Route path="/playlist" element={<Playlist />} />
-          <Route path="/watchlater" element={<Watchlater />} />
-          <Route path="/history" element={<History />} />
-        </Routes>
+        <>
+          <Outlet />
+        </>
       </div>
-    </div>
+    </>
   );
 }
 
