@@ -1,43 +1,38 @@
-import { Server, Model, RestSerializer } from "miragejs";
-import {
-  loginHandler,
-  signupHandler,
-} from "./backend/controllers/AuthController";
-import {
-  getHistoryVideosHandler,
-  addVideoToHistoryHandler,
-  removeVideoFromHistoryHandler,
-  clearHistoryHandler,
-} from "./backend/controllers/HistoryController";
-import {
-  getAllVideosHandler,
-  getVideoHandler,
-} from "./backend/controllers/VideoController";
-import { videos } from "./backend/db/videos";
-import { categories } from "./backend/db/categories";
+import { Model, RestSerializer, Server } from "miragejs";
+import { loginHandler, signupHandler } from "./backend/controllers/AuthController";
 import {
   getAllCategoriesHandler,
   getCategoryHandler,
 } from "./backend/controllers/CategoryController";
 import {
-  getLikedVideosHandler,
+  addVideoToHistoryHandler,
+  clearHistoryHandler,
+  getHistoryVideosHandler,
+  removeVideoFromHistoryHandler,
+} from "./backend/controllers/HistoryController";
+import {
   addItemToLikedVideos,
+  getLikedVideosHandler,
   removeItemFromLikedVideos,
 } from "./backend/controllers/LikeController";
 import {
-  getAllPlaylistsHandler,
   addNewPlaylistHandler,
-  removePlaylistHandler,
-  getVideosFromPlaylistHandler,
   addVideoToPlaylistHandler,
+  getAllPlaylistsHandler,
+  getVideosFromPlaylistHandler,
+  removePlaylistHandler,
   removeVideoFromPlaylistHandler,
 } from "./backend/controllers/PlaylistController";
-import { users } from "./backend/db/users";
+import { getAllVideosHandler, getVideoHandler } from "./backend/controllers/VideoController";
 import {
   addItemToWatchLaterVideos,
   getWatchLaterVideosHandler,
   removeItemFromWatchLaterVideos,
 } from "./backend/controllers/WatchLaterController";
+import { categories } from "./backend/db/categories";
+import { users } from "./backend/db/users";
+import { videos } from "./backend/db/videos";
+
 export function makeServer({ environment = "development" } = {}) {
   return new Server({
     serializers: {
@@ -69,7 +64,7 @@ export function makeServer({ environment = "development" } = {}) {
           watchlater: [],
           history: [],
           playlists: [],
-        })
+        }),
       );
     },
 
@@ -97,39 +92,24 @@ export function makeServer({ environment = "development" } = {}) {
       // watch later routes (private)
       this.get("/user/watchlater", getWatchLaterVideosHandler.bind(this));
       this.post("/user/watchlater", addItemToWatchLaterVideos.bind(this));
-      this.delete(
-        "/user/watchlater/:videoId",
-        removeItemFromWatchLaterVideos.bind(this)
-      );
+      this.delete("/user/watchlater/:videoId", removeItemFromWatchLaterVideos.bind(this));
 
       // playlist routes (private)
       this.get("/user/playlists", getAllPlaylistsHandler.bind(this));
       this.post("/user/playlists", addNewPlaylistHandler.bind(this));
-      this.delete(
-        "/user/playlists/:playlistId",
-        removePlaylistHandler.bind(this)
-      );
+      this.delete("/user/playlists/:playlistId", removePlaylistHandler.bind(this));
 
-      this.get(
-        "/user/playlists/:playlistId",
-        getVideosFromPlaylistHandler.bind(this)
-      );
-      this.post(
-        "/user/playlists/:playlistId",
-        addVideoToPlaylistHandler.bind(this)
-      );
+      this.get("/user/playlists/:playlistId", getVideosFromPlaylistHandler.bind(this));
+      this.post("/user/playlists/:playlistId", addVideoToPlaylistHandler.bind(this));
       this.delete(
         "/user/playlists/:playlistId/:videoId",
-        removeVideoFromPlaylistHandler.bind(this)
+        removeVideoFromPlaylistHandler.bind(this),
       );
 
       // history routes (private)
       this.get("/user/history", getHistoryVideosHandler.bind(this));
       this.post("/user/history", addVideoToHistoryHandler.bind(this));
-      this.delete(
-        "/user/history/:videoId",
-        removeVideoFromHistoryHandler.bind(this)
-      );
+      this.delete("/user/history/:videoId", removeVideoFromHistoryHandler.bind(this));
       this.delete("/user/history/all", clearHistoryHandler.bind(this));
     },
   });

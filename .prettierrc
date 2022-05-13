@@ -1,0 +1,22 @@
+{
+  "bracketSpacing": true,
+  "arrowParens": "always",
+  "bracketSameLine": true,
+  "tabWidth": 2,
+  "useTabs": false,
+  "semi": true,
+  "singleQuote": false,
+  "printWidth": 100,
+  "jsxSingleQuote": false,
+  "trailingComma": "all",
+  "importOrder": [
+    "^(^react$|@react|react|^recoil$)",
+    "^@mui/(.*)$",
+    "<THIRD_PARTY_MODULES>",
+    "^@/(.*)$",
+    "^[./]"
+  ],
+  "importOrderSeparation": false,
+  "importOrderGroupNamespaceSpecifiers": false,
+  "importOrderSortSpecifiers": true
+}
