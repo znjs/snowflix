@@ -1,7 +1,7 @@
 .modal-container {
     z-index: 2;
     width: calc(100% - 14rem);
-    height: calc(100vh - 56px);
+    height: calc(100vh - 3.5rem);
     overflow: auto;
     background-color: #80808060;
     justify-content: center;

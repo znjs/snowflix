@@ -5,7 +5,7 @@
 }
 
 .container-wrapper {
-    height: calc(100vh - 56px);
+    height: calc(100vh - 3.5rem);
     overflow: auto;
     padding-bottom: 1.5rem;
 }
