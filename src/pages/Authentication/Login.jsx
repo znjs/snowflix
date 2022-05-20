@@ -6,7 +6,7 @@ function Login() {
   const navigate = useNavigate();
   const { login } = useAuth();
   const [user, setUser] = useState({ email: "", password: "" });
-  const encodedToken = JSON.parse(localStorage.getItem("encodedToken"));
+  const encodedToken = localStorage.getItem("encodedToken");
   const { setDisplayLoader } = useVideo();
   useEffect(() => {
     if (encodedToken) navigate("/");
@@ -27,9 +27,7 @@ function Login() {
             name="email"
             placeholder="john.doe@xyz.com"
             value={user.email}
-            onChange={(e) => {
-              setUser((prev) => ({ ...prev, email: e.target.value }));
-            }}
+            onChange={(e) => setUser((prev) => ({ ...prev, email: e.target.value }))}
           />
         </div>
         <div className="pd-b-05 fx">
@@ -43,9 +41,7 @@ function Login() {
             name="password"
             placeholder="Password"
             value={user.password}
-            onChange={(e) => {
-              setUser((prev) => ({ ...prev, password: e.target.value }));
-            }}
+            onChange={(e) => setUser((prev) => ({ ...prev, password: e.target.value }))}
           />
         </div>
         <div className="fx fx-jc-sb fx-ai-center">
@@ -55,13 +51,7 @@ function Login() {
               Remember Me
             </label>
           </div>
-          <p
-            className="cr-pt clr-gray-400"
-            onClick={() => {
-              navigate("/forgotPassword");
-            }}>
-            Forgot Password?
-          </p>
+          <p></p>
         </div>
         <button
           className="pd-b-05 w-full brd-sm bg-clr-gray-800 clr-gray-50 fw-600 mg-b-05"
@@ -74,17 +64,11 @@ function Login() {
         </button>
         <button
           className="pd-b-05 w-full brd-sm bg-clr-gray-800 clr-gray-50 fw-600  mg-b-05"
-          onClick={() => {
-            setUser({ email: "test@gmail.com", password: "test123" });
-          }}>
+          onClick={() => setUser({ email: "test@gmail.com", password: "test123" })}>
           Demo Login
         </button>
         <div className="fx fx-jc-center">
-          <span
-            className="cr-pt"
-            onClick={() => {
-              navigate("/signup");
-            }}>
+          <span className="cr-pt" onClick={() => navigate("/signup")}>
             Create a new account <i className="fa-solid fa-angle-right f-075"></i>
           </span>
         </div>

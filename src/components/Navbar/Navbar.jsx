@@ -7,7 +7,7 @@ function Navbar({ changeTheme, theme }) {
   const [searchText, setSearchText] = useState("");
   const { videoDispatch } = useVideo();
   const navigate = useNavigate();
-  const encodedToken = JSON.parse(localStorage.getItem("encodedToken"));
+  const encodedToken = localStorage.getItem("encodedToken");
   return (
     <div className="bg-clr-gray-900 clr-gray-50 fx fx-ai-center fx-jc-sb p-abs top lft rgt">
       <div className="fx fx-ai-center">

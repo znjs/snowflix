@@ -6,11 +6,11 @@ import { PlaylistCard } from "../PlaylistCard/PlaylistCard";
 import "./playlist.css";
 
 function Playlist() {
+  const encodedToken = localStorage.getItem("encodedToken");
   const [playlistData, setPlaylistData] = useState([]);
   const [fetchPlaylistFlag, setFetchPlaylistFlag] = useState(false);
   const navigate = useNavigate();
   const { setDisplayLoader } = useVideo();
-  const encodedToken = JSON.parse(localStorage.getItem("encodedToken"));
   useEffect(() => {
     setDisplayLoader(true);
     (async () => {

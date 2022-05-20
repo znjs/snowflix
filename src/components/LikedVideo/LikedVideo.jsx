@@ -7,7 +7,7 @@ import "./likedVideo.css";
 
 function LikedVideo() {
   const navigate = useNavigate();
-  const encodedToken = JSON.parse(localStorage.getItem("encodedToken"));
+  const encodedToken = localStorage.getItem("encodedToken");
   const [likedVideos, setLikedVideos] = useState([]);
   const [changeLikedFlag, setChangeLikedFlag] = useState(false);
   const { setDisplayLoader } = useVideo();

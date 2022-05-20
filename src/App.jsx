@@ -1,5 +1,5 @@
-import { Route, Routes } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
+import { useEffect } from "react";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Mockman from "mockman-js";
 import "./App.css";
 import {
@@ -19,6 +19,14 @@ import { Forgot, Home, Login, PrivateRoute, Signup, UserProfile } from "./pages"
 function App() {
   const { changeTheme, theme } = useTheme();
   const { displayLoader } = useVideo();
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  }, [pathname]);
   return (
     <div id={theme} className="bg-clr-gray-800 h-screen p-rel">
       <FullLoader displayLoader={displayLoader} />

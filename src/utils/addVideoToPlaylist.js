@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const addVideoToPlaylist = (playlistID, video) => {
-  const encodedToken = JSON.parse(localStorage.getItem("encodedToken"));
+  const encodedToken = localStorage.getItem("encodedToken");
   if (encodedToken) {
     try {
       (async () => {

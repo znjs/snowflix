@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import date from "date-and-time";
-import { addToHistory, removeVideoFromPlaylist } from "../../utils";
+import { removeVideoFromPlaylist } from "../../utils";
 
 function PlaylistVideoCard({ video, playlistId, setFetchVideo }) {
   const navigate = useNavigate();
@@ -14,7 +14,7 @@ function PlaylistVideoCard({ video, playlistId, setFetchVideo }) {
   now = date.format(now, "DD MMM YYYY");
 
   //*ENCODED TOKEN
-  const encodedToken = JSON.parse(localStorage.getItem("encodedToken"));
+  const encodedToken = localStorage.getItem("encodedToken");
 
   return (
     <div className="w-20 brd-sm o-hide clr-gray-50 bg-clr-gray-900 clr-gray-50 mg-05">

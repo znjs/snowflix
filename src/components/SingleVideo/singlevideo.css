@@ -13,3 +13,7 @@
 .divider {
     border: 1px solid gray;
 }
+
+.videoDescription {
+    max-width: 675px;
+}

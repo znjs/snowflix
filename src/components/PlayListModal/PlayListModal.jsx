@@ -10,7 +10,7 @@ function PlayListModal({ playlistModalData, setPlaylistModalData }) {
     playlistName: "",
   });
   const [fetchPlaylist, setFetchPlaylist] = useState(false);
-  const encodedToken = JSON.parse(localStorage.getItem("encodedToken"));
+  const encodedToken = localStorage.getItem("encodedToken");
   const { video } = playlistModalData;
   useEffect(() => {
     (async () => {

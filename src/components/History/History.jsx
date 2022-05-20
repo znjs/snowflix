@@ -7,7 +7,7 @@ import "./history.css";
 
 function History() {
   const [videoList, setVideoList] = useState([]);
-  const encodedToken = JSON.parse(localStorage.getItem("encodedToken"));
+  const encodedToken = localStorage.getItem("encodedToken");
   const [historyChangeFlag, setHistoryChangeFlag] = useState(false);
   const { setDisplayLoader } = useVideo();
   const navigate = useNavigate();

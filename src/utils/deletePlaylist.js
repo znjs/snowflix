@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const deletePlaylist = async (playlist) => {
-  const encodedToken = JSON.parse(localStorage.getItem("encodedToken"));
+  const encodedToken = localStorage.getItem("encodedToken");
   if (encodedToken) {
     try {
       let res = await axios.delete(`/api/user/playlists/${playlist._id}`, {

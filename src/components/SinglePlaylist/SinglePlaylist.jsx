@@ -2,12 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { useVideo } from "../../context";
-import { ExploreCard } from "../ExploreCard/ExploreCard";
 import { PlaylistVideoCard } from "../PlaylistVideoCard/PlaylistVideoCard";
 import "./singleplaylist.css";
 
 function SinglePlaylist() {
-  const encodedToken = JSON.parse(localStorage.getItem("encodedToken"));
+  const encodedToken = localStorage.getItem("encodedToken");
   const navigate = useNavigate();
   const { setDisplayLoader } = useVideo();
   const [fetchVideos, setFetchVideo] = useState(false);

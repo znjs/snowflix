@@ -10,7 +10,7 @@ function Watchlater() {
   const [watchLaterVideos, setWatchLaterVideos] = useState([]);
   const [fetchWatchlaterFlag, setFetchWatchlaterFlag] = useState(false);
   const { setDisplayLoader } = useVideo();
-  const encodedToken = JSON.parse(localStorage.getItem("encodedToken"));
+  const encodedToken = localStorage.getItem("encodedToken");
   useEffect(() => {
     if (encodedToken) {
       setDisplayLoader(true);

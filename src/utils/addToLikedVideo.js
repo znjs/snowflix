@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const addToLikedVideo = async (video) => {
-  const encodedToken = JSON.parse(localStorage.getItem("encodedToken"));
+  const encodedToken = localStorage.getItem("encodedToken");
   if (encodedToken) {
     try {
       let res = await axios.post(

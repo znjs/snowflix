@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const removeVideoFromPlaylist = (playlistID, video) => {
-  const encodedToken = JSON.parse(localStorage.getItem("encodedToken"));
+  const encodedToken = localStorage.getItem("encodedToken");
   const { _id: videoId } = video;
   if (encodedToken) {
     try {

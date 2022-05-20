@@ -14,7 +14,7 @@ import "./singlevideo.css";
 
 function SingleVideo() {
   const navigate = useNavigate();
-  const encodedToken = JSON.parse(localStorage.getItem("encodedToken"));
+  const encodedToken = localStorage.getItem("encodedToken");
   const [likedVideos, setLikedVideos] = useState([]);
   const [watchLaterVideos, setWatchLaterVideos] = useState([]);
   const [likeStatusFlag, setLikeStatusFlag] = useState(false);

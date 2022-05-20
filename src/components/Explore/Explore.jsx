@@ -15,7 +15,7 @@ function Explore() {
   });
   const [watchlaterVideos, setWatchlaterVideos] = useState([]);
   const [fetchWatchlaterVideos, setFetchWatchlaterVideos] = useState(false);
-  const encodedToken = JSON.parse(localStorage.getItem("encodedToken"));
+  const encodedToken = localStorage.getItem("encodedToken");
   useEffect(() => {
     setDisplayLoader(true);
     (async () => {

@@ -40,7 +40,7 @@ code {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--clr-lightgray);
+  background: transparent;
   border-radius: 1rem;
 }
 
