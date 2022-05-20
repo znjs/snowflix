@@ -6,7 +6,7 @@ function Signup() {
   const { signUp } = useAuth();
   const navigate = useNavigate();
   const [user, setUser] = useState({ email: "", password: "" });
-  const encodedToken = JSON.parse(localStorage.getItem("encodedToken"));
+  const encodedToken = localStorage.getItem("encodedToken");
   const { setDisplayLoader } = useVideo();
   useEffect(() => {
     if (encodedToken) navigate("/");
@@ -26,9 +26,7 @@ function Signup() {
             id="firstName"
             name="firstName"
             placeholder="John"
-            onChange={(e) => {
-              setUser((prev) => ({ ...prev, firstName: e.target.value }));
-            }}
+            onChange={(e) => setUser((prev) => ({ ...prev, firstName: e.target.value }))}
           />
         </div>
         <div className="pd-b-05 fx">
@@ -41,9 +39,7 @@ function Signup() {
             id="lastName"
             name="lastName"
             placeholder="Doe"
-            onChange={(e) => {
-              setUser((prev) => ({ ...prev, lastName: e.target.value }));
-            }}
+            onChange={(e) => setUser((prev) => ({ ...prev, lastName: e.target.value }))}
           />
         </div>
         <div className="pd-b-05 fx">
@@ -56,9 +52,7 @@ function Signup() {
             id="email"
             name="email"
             placeholder="john.doe@xyz.com"
-            onChange={(e) => {
-              setUser((prev) => ({ ...prev, email: e.target.value }));
-            }}
+            onChange={(e) => setUser((prev) => ({ ...prev, email: e.target.value }))}
           />
         </div>
         <div className="pd-b-05 fx">
@@ -71,9 +65,7 @@ function Signup() {
             id="password"
             name="password"
             placeholder="Password"
-            onChange={(e) => {
-              setUser((prev) => ({ ...prev, password: e.target.value }));
-            }}
+            onChange={(e) => setUser((prev) => ({ ...prev, password: e.target.value }))}
           />
         </div>
         <button
@@ -89,11 +81,7 @@ function Signup() {
           Sign Up
         </button>
         <div className="fx fx-jc-center">
-          <span
-            className="cr-pt"
-            onClick={() => {
-              navigate("/login");
-            }}>
+          <span className="cr-pt" onClick={() => navigate("/login")}>
             <i className="fa-solid fa-angle-left f-075"></i> &nbsp;Back to Login
           </span>
         </div>
