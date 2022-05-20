@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const removeFromWacthlater = async (video) => {
-  const encodedToken = JSON.parse(localStorage.encodedToken);
+  const encodedToken = localStorage.encodedToken;
   if (encodedToken) {
     try {
       let res = await axios.delete(`/api/user/watchlater/${video._id}`, {
