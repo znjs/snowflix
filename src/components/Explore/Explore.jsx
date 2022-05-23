@@ -32,6 +32,7 @@ function Explore() {
       setDisplayLoader(false);
     })();
   }, [fetchWatchlaterVideos]);
+  useEffect(() => setDisplayLoader(false));
   return (
     <div className="explore">
       <PlayListModal

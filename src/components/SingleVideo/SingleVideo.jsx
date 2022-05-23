@@ -27,6 +27,7 @@ function SingleVideo() {
     video: {},
   });
   const video = videoState.videos.find((video) => video._id === videoId);
+  if (!!!video) navigate("/pageNotFound");
   useEffect(() => {
     addToHistory(video);
   }, []);
@@ -73,7 +74,7 @@ function SingleVideo() {
       <div className="singleVideo-container">
         <iframe
           width="100%"
-          src={`https://www.youtube.com/embed/${video._id}`}
+          src={`https://www.youtube.com/embed/${videoId}`}
           title="YouTube video player"
           style={{
             aspectRatio: "1.77",
@@ -81,19 +82,27 @@ function SingleVideo() {
           }}
           frameBorder="0"
           allow="accelerometer;  clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
-        <h2 className="clr-gray-50 mg-b-05">{video.title}</h2>
+        <h2 className="clr-gray-50 mg-b-05">{video?.title}</h2>
         <div className="clr-gray-50 mg-b-05 fx fx-ai-center fx-jc-sb">
           <div className="fx fx-ai-center">
-            <p>{video.views} views</p>
+            <p>{video?.views} views</p>
             <i className="fa-solid fa-circle f-05 pd-i-05"></i>
-            <p>{video.date}</p>
+            <p>{video?.date}</p>
           </div>
           <div className="fx">
             <p
               className="cr-pt mg-i-075"
+              onClick={() =>
+                navigator.clipboard.writeText(`https://snowflix-react.netlify.app/${video?._id}`)
+              }>
+              <i className={`fa-solid fa-share pd-i-05`}></i>
+              Share
+            </p>
+            <p
+              className="cr-pt mg-i-075"
               onClick={() => {
                 if (encodedToken) {
-                  likedVideos.find((video) => video._id === videoId)
+                  likedVideos.find((video) => video?._id === videoId)
                     ? deleteFromLiked(video)
                     : addToLikedVideo(video);
                   setLikeStatusFlag((prev) => !prev);
@@ -140,14 +149,14 @@ function SingleVideo() {
                   navigate("/login");
                 }
               }}>
-              <i className="fas fa-plus-circle"></i>
+              <i className="fas fa-plus-circle mg-i-075"></i>
               Add to Playlist
             </p>
           </div>
         </div>
         <hr className="divider" />
-        <p className="clr-gray-200 mg-b-025 f-1025">{video.creator}</p>
-        <p className="clr-gray-50">{video.description}</p>
+        <p className="clr-gray-200 mg-b-025 f-1025">{video?.creator}</p>
+        <p className="clr-gray-50">{video?.description}</p>
       </div>
     </div>
   );

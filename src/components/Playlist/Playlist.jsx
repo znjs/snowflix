@@ -27,6 +27,7 @@ function Playlist() {
       setDisplayLoader(false);
     })();
   }, [fetchPlaylistFlag]);
+
   return (
     <div className="pd-2 clr-gray-50 fx-grow playlist">
       <h2>Playlist Videos</h2>

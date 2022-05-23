@@ -9,7 +9,7 @@ function Home({ changeTheme, theme }) {
   return (
     <>
       <ToastContainer
-        position='top-right'
+        position="top-right"
         autoClose={2000}
         hideProgressBar={false}
         newestOnTop={false}
@@ -20,8 +20,8 @@ function Home({ changeTheme, theme }) {
         pauseOnHover
       />
       <Navbar changeTheme={changeTheme} theme={theme} />
-      <div className='main-container fx'>
-        <Aside />
+      <div className="main-container fx">
+        <Aside theme={theme} />
         <>
           <Outlet />
         </>

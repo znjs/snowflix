@@ -27,6 +27,7 @@ function Watchlater() {
       })();
     }
   }, [fetchWatchlaterFlag]);
+
   return (
     <div className="fx-grow pd-2 clr-gray-50 watchLater">
       <h2>WatchLater Videos</h2>

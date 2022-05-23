@@ -24,7 +24,7 @@ function PlaylistVideoCard({ video, playlistId, setFetchVideo }) {
           src={`https://i.ytimg.com/vi/${video._id}/hq720.jpg`}
           alt=""
           onClick={() => {
-            navigate(`/${video._id}`);
+            navigate(`/video/${video._id}`);
           }}
         />
         <p className="p-abs btm rgt pd-025 mg-b-075 mg-i-025 timestamp brd-sm select-none">12:89</p>
@@ -38,7 +38,7 @@ function PlaylistVideoCard({ video, playlistId, setFetchVideo }) {
       <div className="pd-i-05 pd-b-025">
         <p
           onClick={() => {
-            navigate(`/${video._id}`);
+            navigate(`/video/${video._id}`);
           }}
           className="cr-pt video-title pd-b-025">
           {video.title}
