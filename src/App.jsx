@@ -14,7 +14,7 @@ import {
 } from "./components";
 import { useVideo } from "./context";
 import { useTheme } from "./hooks/useTheme";
-import { Forgot, Home, Login, PrivateRoute, Signup, UserProfile } from "./pages";
+import { Forgot, Home, Login, PageNotFound, PrivateRoute, Signup, UserProfile } from "./pages";
 
 function App() {
   const { changeTheme, theme } = useTheme();
@@ -28,7 +28,9 @@ function App() {
     });
   }, [pathname]);
   return (
-    <div id={theme} className="bg-clr-gray-800 h-screen p-rel">
+    <div
+      id={theme}
+      className={`${theme === "light" ? "light" : ""} bg-clr-gray-800 h-screen p-rel`}>
       <FullLoader displayLoader={displayLoader} />
       <Routes>
         <Route element={<Home changeTheme={changeTheme} theme={theme} />}>
@@ -36,8 +38,10 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/forgotPassword" element={<Forgot />} />
           <Route path="/" element={<Explore />} />
-          <Route path="/:videoId" element={<SingleVideo />} />
+          <Route path="/video/:videoId" element={<SingleVideo />} />
           <Route path="/mockman" element={<Mockman />} />
+          <Route path="/*" element={<PageNotFound />} />
+          <Route path="/pageNotFound" element={<PageNotFound />} />
           <Route
             path="/userProfile"
             element={
