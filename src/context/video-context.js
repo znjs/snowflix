@@ -1,41 +1,13 @@
 import { createContext, useContext, useEffect, useReducer, useState } from "react";
 import axios from "axios";
+import { videoReducer } from "../reducer";
 
 const VideoContext = createContext();
-
-const videoReducer = (state, action) => {
-  switch (action.type) {
-    case "UPDATE_VIDEO":
-      return {
-        ...state,
-        videos: [...action.payload.videoList],
-        default: [...action.payload.videoList],
-      };
-    case "UPDATE_FILTER":
-      return state;
-    case "SEARCH_VIDEO":
-      if (!!action.payload.searchText) {
-        return {
-          ...state,
-          videos: state.default.filter((video) =>
-            video.title.toLowerCase().includes(action.payload.searchText.toLowerCase()),
-          ),
-        };
-      } else {
-        return {
-          ...state,
-          videos: [...state.default],
-        };
-      }
-    default:
-      return state;
-  }
-};
 
 const initialState = {
   videos: [],
   default: [],
-  filter: "",
+  filter: "All",
 };
 
 const VideoProvider = ({ children }) => {
