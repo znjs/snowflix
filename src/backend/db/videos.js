@@ -14,6 +14,7 @@ export const videos = [
     likes: 235,
     views: 3396,
     date: "16-11-2021",
+    time: "1:10:48",
   },
   {
     _id: "Sd3_rjKQf24",
@@ -25,6 +26,7 @@ export const videos = [
     likes: 264,
     views: 2617,
     date: "30-01-2015",
+    time: "1:38",
   },
   {
     _id: "3CWJNqyub3o",
@@ -36,6 +38,7 @@ export const videos = [
     likes: 590,
     views: 1354,
     date: "29-08-2015",
+    time: "1:46",
   },
   {
     _id: "B9l-2J7Nkbo",
@@ -47,6 +50,7 @@ export const videos = [
     likes: 440,
     views: 4678,
     date: "30-11-2018",
+    time: "9:09",
   },
   {
     _id: "TbQm5doF_Uc",
@@ -57,6 +61,7 @@ export const videos = [
     likes: 6800,
     views: 7647,
     date: "27-07-2013",
+    time: "2:23",
   },
   {
     _id: "jEDaVHmw7r4",
@@ -68,6 +73,7 @@ export const videos = [
     likes: 1000,
     views: 2313,
     date: "19-11-1990",
+    time: "2:14",
   },
   {
     _id: "taE3PwurhYM",
@@ -79,6 +85,7 @@ export const videos = [
     likes: 9000,
     views: 10545,
     date: "07-10-2019",
+    time: "2:46",
   },
   {
     _id: "ao2Jfm35XeE",
@@ -90,6 +97,7 @@ export const videos = [
     likes: 2653,
     views: 3333,
     date: "01-12-2021",
+    time: "18:48",
   },
   {
     _id: "5h9VDUNtoto",
@@ -101,6 +109,7 @@ export const videos = [
     likes: 2500,
     views: 47056,
     date: "20-11-1992",
+    time: "1:13",
   },
   {
     _id: "bYoEz9nPAi4",
@@ -112,6 +121,7 @@ export const videos = [
     likes: 115,
     views: 4898,
     date: "11-04-2021",
+    time: "5:45",
   },
   {
     _id: "WhJYZqYO-Fk",
@@ -123,6 +133,7 @@ export const videos = [
     likes: 110,
     views: 616,
     date: "27-08-2021",
+    time: "12:25",
   },
   {
     _id: "WinpUwqRFX4",
@@ -134,18 +145,19 @@ export const videos = [
     likes: 780,
     views: 980,
     date: "16-11-2021",
+    time: "12:31",
   },
   {
-    _id: "Ahlid7S0nOc",
-    title:
-      "Paper Crafts For School | Christmas Crafts | Christmas Decorations Ideas | Paper Craft | Paper",
+    _id: "bzrxmFCrN7Q",
+    title: "10 Christmas Decoration Ideas || 🎄⭐Paper Decoration ideas for Christmas",
     category: "decorations",
     description:
       "Christmas Decoration Ideas Using Paper In this video we are making a beautiful flower for you. We hope this video will be interesting to you.",
-    creator: "Youten Craft",
+    creator: "Arts&Crafts",
     likes: 560,
     views: 4581,
     date: "21-12-2019",
+    time: "34:09",
   },
   {
     _id: "g-OF7KGyDis",
@@ -157,6 +169,7 @@ export const videos = [
     likes: 657,
     views: 1216,
     date: "07-12-2014",
+    time: "2:01",
   },
   {
     _id: "a171hw91QjI",
@@ -168,6 +181,7 @@ export const videos = [
     likes: 2754,
     views: 10401,
     date: "18-02-2021",
+    time: "26:28",
   },
   {
     _id: "l2mI-aqz4vo",
@@ -179,6 +193,7 @@ export const videos = [
     likes: 413,
     views: 2500,
     date: "19-01-2017",
+    time: "7:34",
   },
   {
     _id: "vai3Vh234EE",
@@ -190,6 +205,7 @@ export const videos = [
     likes: 7200,
     views: 41133,
     date: "30-09-2020",
+    time: "26:40",
   },
   {
     _id: "3te6TZztQ00",
@@ -201,6 +217,7 @@ export const videos = [
     likes: 770,
     views: 4821,
     date: "15-09-2019",
+    time: "11:13",
   },
   {
     _id: "aAkMkVFwAoo",
@@ -211,5 +228,6 @@ export const videos = [
     likes: 3500,
     views: 3700,
     date: "20-12-2019",
+    time: "4:03",
   },
 ];

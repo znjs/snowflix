@@ -14,7 +14,9 @@ function HistoryCard({ video, flagChange }) {
           alt={video.description}
           onClick={() => navigate(`/video/${video._id}`)}
         />
-        <p className="p-abs btm rgt pd-025 mg-b-075 mg-i-025 timestamp brd-sm select-none">12:89</p>
+        <p className="p-abs btm rgt pd-025 mg-b-075 mg-i-025 timestamp brd-sm select-none">
+          {video.time}
+        </p>
       </div>
       <div className="fx fx-col pd-2 clr-gray-50 p-rel fx-grow">
         <p className="fw-600 cr-pt" onClick={() => navigate(`/video/${video._id}`)}>

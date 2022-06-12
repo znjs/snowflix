@@ -29,7 +29,9 @@ function ExploreCard({ video, setPlaylistModalData, setFetchWatchlaterVideos, wa
             navigate(`/video/${video._id}`);
           }}
         />
-        <p className="p-abs btm rgt pd-025 mg-b-075 mg-i-025 timestamp brd-sm select-none">12:89</p>
+        <p className="p-abs btm rgt pd-025 mg-b-075 mg-i-025 timestamp brd-sm select-none">
+          {video.time}
+        </p>
         <i
           onClick={() => {
             if (encodedToken) {

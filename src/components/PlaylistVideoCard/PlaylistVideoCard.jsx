@@ -27,7 +27,9 @@ function PlaylistVideoCard({ video, playlistId, setFetchVideo }) {
             navigate(`/video/${video._id}`);
           }}
         />
-        <p className="p-abs btm rgt pd-025 mg-b-075 mg-i-025 timestamp brd-sm select-none">12:89</p>
+        <p className="p-abs btm rgt pd-025 mg-b-075 mg-i-025 timestamp brd-sm select-none">
+          {video.time}
+        </p>
         <i
           className="card-cta fa-solid fa-trash-can p-abs clr-gray-50 top rgt pd-05 mg-075 brd-round bg-clr-gray-600 cr-pt"
           onClick={() => {
