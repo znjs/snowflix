@@ -93,7 +93,7 @@ function SingleVideo() {
             <p
               className="cr-pt mg-i-075"
               onClick={() =>
-                navigator.clipboard.writeText(`https://snowflix-react.netlify.app/${video?._id}`)
+                navigator.clipboard.writeText(`https://snowflix-react.netlify.app/video/${video?._id}`)
               }>
               <i className={`fa-solid fa-share pd-i-05`}></i>
               Share
