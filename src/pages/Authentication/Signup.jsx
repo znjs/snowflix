@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth, useVideo } from "../../context";
+import { triggerToast } from "../../utils";
 
 function Signup() {
   const { signUp } = useAuth();
@@ -11,14 +12,14 @@ function Signup() {
   useEffect(() => {
     if (encodedToken) navigate("/");
     setDisplayLoader(false);
-  }, []);
+  }, [encodedToken, navigate, setDisplayLoader]);
   return (
     <div className="w-full fx-col fx-jc-center fx-ai-center clr-gray-50">
       <div className="bg-clr-gray-900 pd-1 brd-sm w-24">
         <h2 className="ff-nunito pd-b-05 ta-center">Welcome to Snowflix</h2>
         <div className="pd-b-05 fx">
-          <label htmlFor="firstName" className="w-5">
-            First Name
+          <label htmlFor="firstName" className="w-6">
+            First Name&nbsp;*
           </label>
           <input
             className="fx-grow pd-i-05 pd-b-025 bg-clr-gray-800 brd-none clr-gray-50 brd-sm"
@@ -30,7 +31,7 @@ function Signup() {
           />
         </div>
         <div className="pd-b-05 fx">
-          <label htmlFor="lastName" className="w-5">
+          <label htmlFor="lastName" className="w-6">
             Last Name
           </label>
           <input
@@ -43,8 +44,8 @@ function Signup() {
           />
         </div>
         <div className="pd-b-05 fx">
-          <label htmlFor="email" className="w-5">
-            Email
+          <label htmlFor="email" className="w-6">
+            Email&nbsp;*
           </label>
           <input
             className="fx-grow pd-i-05 pd-b-025 bg-clr-gray-800 brd-none clr-gray-50 brd-sm"
@@ -56,8 +57,8 @@ function Signup() {
           />
         </div>
         <div className="pd-b-05 fx">
-          <label htmlFor="password" className="w-5">
-            Password
+          <label htmlFor="password" className="w-6">
+            Password&nbsp;*
           </label>
           <input
             className="fx-grow pd-i-05 pd-b-025 bg-clr-gray-800 brd-none clr-gray-50 brd-sm"
@@ -71,11 +72,13 @@ function Signup() {
         <button
           className="pd-b-05 w-full brd-sm bg-clr-gray-800 clr-gray-50 fw-600 mg-b-05"
           onClick={() => {
-            if (!!user.email && !!user.password) {
+            if (!!user.email && !!user.password && !!user.firstName) {
               signUp(user.email, user.password, {
                 firstName: user.firstName,
                 lastName: user.lastName,
               });
+            } else {
+              triggerToast("warn", "Enter the Mandatory fields.");
             }
           }}>
           Sign Up

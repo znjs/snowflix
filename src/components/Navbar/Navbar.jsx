@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useVideo } from "../../context/video-context";
 import "./navbar.css";
 
 function Navbar({ changeTheme, theme }) {
   const [searchText, setSearchText] = useState("");
   const { videoDispatch } = useVideo();
+  const { pathname } = useLocation();
   const navigate = useNavigate();
   const encodedToken = localStorage.getItem("encodedToken");
   return (
@@ -29,6 +30,7 @@ function Navbar({ changeTheme, theme }) {
           onChange={(e) => setSearchText(e.target.value)}
           onKeyUp={(e) => {
             if (e.key === "Enter" || e.key === "Backspace") {
+              if (pathname !== "/") navigate("/");
               videoDispatch({ type: "SEARCH_VIDEO", payload: { searchText } });
             }
           }}

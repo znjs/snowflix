@@ -82,6 +82,10 @@ code {
     monospace;
 }
 
+input:invalid {
+  background-color: unset;
+}
+
 ::-webkit-scrollbar {
   width: 0.7rem;
 }

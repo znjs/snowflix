@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth, useVideo } from "../../context";
+import { triggerToast } from "../../utils";
 
 function Login() {
   const navigate = useNavigate();
@@ -44,20 +45,13 @@ function Login() {
             onChange={(e) => setUser((prev) => ({ ...prev, password: e.target.value }))}
           />
         </div>
-        <div className="fx fx-jc-sb fx-ai-center">
-          <div className="pd-b-05">
-            <input type="checkbox" id="remember-me" name="remember-me" />
-            <label htmlFor="remember-me" className="select-none pd-i-05">
-              Remember Me
-            </label>
-          </div>
-          <p></p>
-        </div>
         <button
           className="pd-b-05 w-full brd-sm bg-clr-gray-800 clr-gray-50 fw-600 mg-b-05"
           onClick={() => {
             if (!!user.email && !!user.password) {
               login(user.email, user.password);
+            } else {
+              triggerToast("warn", "Fill the empty fields");
             }
           }}>
           Login

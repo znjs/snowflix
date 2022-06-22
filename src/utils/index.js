@@ -10,3 +10,4 @@ export { addVideoToPlaylist } from "./addVideoToPlaylist";
 export { removeVideoFromPlaylist } from "./removeVideoFromPlaylist";
 export { deletePlaylist } from "./deletePlaylist";
 export { removeFromWacthlater } from "./removeFromWatchlater";
+export { triggerToast } from "./triggerToast";

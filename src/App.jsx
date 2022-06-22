@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import Mockman from "mockman-js";
 import "./App.css";
 import {
@@ -32,6 +33,17 @@ function App() {
       id={theme}
       className={`${theme === "light" ? "light" : ""} bg-clr-gray-800 h-screen p-rel`}>
       <FullLoader displayLoader={displayLoader} />
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       <Routes>
         <Route element={<Home changeTheme={changeTheme} theme={theme} />}>
           <Route path="/login" element={<Login />} />
