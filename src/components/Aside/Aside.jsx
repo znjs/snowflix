@@ -1,14 +1,19 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { useVideo } from "../../context";
 import "./aside.css";
 
 function Aside({ theme }) {
+  const { videoDispatch } = useVideo();
   const bgClr = theme === "dark" ? { backgroundColor: "#374151" } : { backgroundColor: "#bfc3cb" };
   return (
     <div className=" bg-clr-gray-900 w-min-14 aside-container pd-1">
       <NavLink
         to="/"
         style={({ isActive }) => (isActive ? bgClr : null)}
+        onClick={() => {
+          videoDispatch({ type: "SEARCH_VIDEO", payload: { searchText: "" } });
+        }}
         className="fx fx-ai-center f-1025 pd-b-05 cr-pt select-none  brd-sm clr-gray-50 mg-b-05">
         <i className="fa-regular fa-compass pd-i-1"></i>
         <p>Explore</p>
