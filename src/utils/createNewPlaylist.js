@@ -1,4 +1,5 @@
 import axios from "axios";
+import { triggerToast } from "./triggerToast";
 
 const createNewPlaylist = async (name) => {
   const encodedToken = localStorage.getItem("encodedToken") || "";
@@ -9,6 +10,7 @@ const createNewPlaylist = async (name) => {
         { playlist: { title: name, description: "" } },
         { headers: { authorization: encodedToken } },
       );
+      triggerToast("success", "New playlist created");
     } catch (err) {
       console.error(err);
     }

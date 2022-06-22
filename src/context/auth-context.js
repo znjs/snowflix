@@ -26,6 +26,7 @@ const AuthProvider = ({ children }) => {
         localStorage.setItem("encodedToken", JSON.stringify(encodedToken));
         setUserData({ encodedToken: encodedToken, user: foundUser });
         navigate("/");
+        triggerToast("success", "User logged in");
       }
     } catch (err) {
       console.error(err);
@@ -57,6 +58,7 @@ const AuthProvider = ({ children }) => {
         localStorage.setItem("encodedToken", JSON.stringify(encodedToken));
         setUserData({ encodedToken: encodedToken, user: createdUser });
         navigate("/");
+        triggerToast("success", "User signed up");
       }
     } catch (err) {
       console.error(err);

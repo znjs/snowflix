@@ -25,9 +25,12 @@ function SinglePlaylist() {
       }
       setDisplayLoader(false);
     })();
-  }, [fetchVideos]);
+  }, [fetchVideos, encodedToken, playlistId, setDisplayLoader]);
   return (
     <div className="fx-grow  pd-2">
+      <div className="cr-pt clr-gray-50 pd-b-05" onClick={() => navigate("/playlist")}>
+        <i className="fa-solid fa-angle-left"></i>&nbsp;Back to Playlists
+      </div>
       <div className="fx fx-wrap">
         {!!videos.length ? (
           videos.map((video) => (

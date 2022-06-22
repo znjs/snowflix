@@ -1,4 +1,5 @@
 import axios from "axios";
+import { triggerToast } from "./triggerToast";
 
 const deleteFromHistory = async (video) => {
   const encodedToken = localStorage.getItem("encodedToken");
@@ -9,6 +10,7 @@ const deleteFromHistory = async (video) => {
           authorization: encodedToken,
         },
       });
+      triggerToast("success", "Video removed from history");
     } catch (err) {
       console.error(err);
     }

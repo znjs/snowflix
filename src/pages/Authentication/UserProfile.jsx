@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context";
+import { triggerToast } from "../../utils";
 import "./auth.css";
 
 function UserProfile() {
@@ -25,6 +26,7 @@ function UserProfile() {
           onClick={() => {
             localStorage.removeItem("encodedToken");
             navigate("/");
+            triggerToast("success", "User Logged out");
           }}>
           Logout
         </button>

@@ -1,4 +1,5 @@
 import axios from "axios";
+import { triggerToast } from "./triggerToast";
 
 const addToLikedVideo = async (video) => {
   const encodedToken = localStorage.getItem("encodedToken");
@@ -9,6 +10,7 @@ const addToLikedVideo = async (video) => {
         { video },
         { headers: { authorization: encodedToken } },
       );
+      triggerToast("success", "Video added to liked videos");
     } catch (err) {
       console.error(err);
     }

@@ -1,4 +1,5 @@
 import axios from "axios";
+import { triggerToast } from "./triggerToast";
 
 const clearHistory = async () => {
   const encodedToken = localStorage.getItem("encodedToken");
@@ -7,6 +8,7 @@ const clearHistory = async () => {
       let res = await axios.delete("/api/user/history/all", {
         headers: { authorization: encodedToken },
       });
+      triggerToast("success", "History is cleared");
     } catch (err) {
       console.error(err);
     }

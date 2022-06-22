@@ -79,6 +79,7 @@ function PlayListModal({ playlistModalData, setPlaylistModalData }) {
               type="text"
               placeholder="playlist name . . ."
               className="brd-sm pd-i-05 pd-b-025 clr-gray-50 bg-clr-gray-800 o-none brd-none"
+              value={newPlaylistState.playlistName}
               onChange={(e) =>
                 setNewPlaylistState((prev) => ({
                   ...prev,

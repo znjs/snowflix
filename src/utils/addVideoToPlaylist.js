@@ -1,4 +1,5 @@
 import axios from "axios";
+import { triggerToast } from "./triggerToast";
 
 const addVideoToPlaylist = (playlistID, video) => {
   const encodedToken = localStorage.getItem("encodedToken");
@@ -11,6 +12,7 @@ const addVideoToPlaylist = (playlistID, video) => {
           { headers: { authorization: encodedToken } },
         );
       })();
+      triggerToast("success", "Video added to Playlist");
     } catch (err) {
       console.error(err);
     }
