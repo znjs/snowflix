@@ -4,7 +4,6 @@ import "./singleChip.css";
 
 function SingleChip({ name = "NoName" }) {
   const { videoDispatch, videoState } = useVideo();
-  console.log(videoState.filter);
   return (
     <span
       onClick={() => videoDispatch({ type: "UPDATE_FILTER", payload: { filter: name } })}
