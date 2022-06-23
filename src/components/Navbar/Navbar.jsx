@@ -15,11 +15,11 @@ function Navbar({ changeTheme, theme }) {
   }, [pathname]);
 
   return (
-    <div className="bg-clr-gray-900 clr-gray-50 fx fx-ai-center fx-jc-sb p-abs top lft rgt">
+    <div className="bg-clr-gray-900 clr-gray-50 fx fx-ai-center fx-jc-sb p-abs top lft rgt h-min-305">
       <div className="fx fx-ai-center">
-        <i className="fa-solid fa-bars f-105 pd-1 cr-pt   nav-options brd-round"></i>
+        {/* <i className="fa-solid fa-bars f-105 pd-1 cr-pt nav-options brd-round"></i> */}
         <p
-          className="f-105 fw-600 select-none title-name cr-pt"
+          className="f-105 fw-600 select-none title-name cr-pt pd-i-1"
           onClick={() => {
             navigate("/");
           }}>

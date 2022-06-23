@@ -1,3 +1,8 @@
 .chipsContainer {
     max-width: 675px;
+    overflow-x: scroll;
+}
+
+.chipsContainer::-webkit-scrollbar {
+    height: 0.7rem;
 }

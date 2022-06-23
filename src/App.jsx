@@ -21,6 +21,7 @@ function App() {
   const { changeTheme, theme } = useTheme();
   const { displayLoader } = useVideo();
   const { pathname } = useLocation();
+
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -28,6 +29,7 @@ function App() {
       behavior: "smooth",
     });
   }, [pathname]);
+
   return (
     <div
       id={theme}
