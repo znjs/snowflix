@@ -10,11 +10,12 @@ function Login() {
   const [user, setUser] = useState({ email: "", password: "" });
   const encodedToken = localStorage.getItem("encodedToken");
   const { setDisplayLoader } = useVideo();
+
   useEffect(() => {
     if (encodedToken) navigate("/");
     setDisplayLoader(false);
   }, []);
-  console.log(location);
+
   return (
     <div className="w-full fx-col fx-jc-center fx-ai-center clr-gray-50">
       <div className="bg-clr-gray-900 pd-1 brd-sm w-24">

@@ -39,7 +39,6 @@ const AuthProvider = ({ children }) => {
       } else {
         triggerToast("error", "Something went wrong try again");
       }
-      // console.log(err.message.slice(-3));
     }
   };
 
@@ -64,7 +63,6 @@ const AuthProvider = ({ children }) => {
       }
     } catch (err) {
       console.error(err);
-      console.log(err.message);
       if (err.message.slice(-3) === "422") {
         triggerToast("error", "User already exists");
       } else {
