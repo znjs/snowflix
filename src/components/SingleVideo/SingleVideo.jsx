@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { useVideo } from "../../context";
 import {
@@ -8,12 +8,14 @@ import {
   addToWatchlater,
   deleteFromLiked,
   removeFromWacthlater,
+  triggerToast,
 } from "../../utils";
 import { PlayListModal } from "../PlayListModal/PlayListModal";
 import "./singlevideo.css";
 
 function SingleVideo() {
   const navigate = useNavigate();
+  const location = useLocation();
   const encodedToken = localStorage.getItem("encodedToken");
   const [likedVideos, setLikedVideos] = useState([]);
   const [watchLaterVideos, setWatchLaterVideos] = useState([]);
@@ -92,9 +94,12 @@ function SingleVideo() {
           <div className="fx">
             <p
               className="cr-pt mg-i-075"
-              onClick={() =>
-                navigator.clipboard.writeText(`https://snowflix-react.netlify.app/video/${video?._id}`)
-              }>
+              onClick={() => {
+                navigator.clipboard.writeText(
+                  `https://snowflix-react.netlify.app/video/${video?._id}`,
+                );
+                triggerToast("success", "Link copied to clipboard");
+              }}>
               <i className={`fa-solid fa-share pd-i-05`}></i>
               Share
             </p>
@@ -107,7 +112,7 @@ function SingleVideo() {
                     : addToLikedVideo(video);
                   setLikeStatusFlag((prev) => !prev);
                 } else {
-                  navigate("/login");
+                  navigate("/login", { replace: true, state: { from: location } });
                 }
               }}>
               <i
@@ -125,7 +130,7 @@ function SingleVideo() {
                     : addToWatchlater(video);
                   setWatchLaterStatusFlag((prev) => !prev);
                 } else {
-                  navigate("/login");
+                  navigate("/login", { replace: true, state: { from: location } });
                 }
               }}>
               <i
@@ -146,7 +151,7 @@ function SingleVideo() {
                     video: video,
                   }));
                 } else {
-                  navigate("/login");
+                  navigate("/login", { replace: true, state: { from: location } });
                 }
               }}>
               <i className="fas fa-plus-circle mg-i-075"></i>

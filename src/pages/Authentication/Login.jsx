@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useAuth, useVideo } from "../../context";
 import { triggerToast } from "../../utils";
 
 function Login() {
   const navigate = useNavigate();
+  const location = useLocation();
   const { login } = useAuth();
   const [user, setUser] = useState({ email: "", password: "" });
   const encodedToken = localStorage.getItem("encodedToken");
@@ -13,6 +14,7 @@ function Login() {
     if (encodedToken) navigate("/");
     setDisplayLoader(false);
   }, []);
+  console.log(location);
   return (
     <div className="w-full fx-col fx-jc-center fx-ai-center clr-gray-50">
       <div className="bg-clr-gray-900 pd-1 brd-sm w-24">

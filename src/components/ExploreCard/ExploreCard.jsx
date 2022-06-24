@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import date from "date-and-time";
 import { addToWatchlater, removeFromWacthlater } from "../../utils";
@@ -7,6 +7,7 @@ import "./ExploreCard.css";
 
 function ExploreCard({ video, setPlaylistModalData, setFetchWatchlaterVideos, watchlaterVideos }) {
   const navigate = useNavigate();
+  const location = useLocation();
   const videoId = video._id;
   // *DATE FORMATTING
   let now = video.date;
@@ -41,7 +42,7 @@ function ExploreCard({ video, setPlaylistModalData, setFetchWatchlaterVideos, wa
                 video: video,
               }));
             } else {
-              navigate("/login");
+              navigate("/login", { replace: true, state: { from: location } });
             }
           }}
           className="card-cta fa-solid fa-plus p-abs clr-gray-50 btm lft pd-025 mg-075 brd-round bg-clr-gray-600 cr-pt"></i>
@@ -53,7 +54,7 @@ function ExploreCard({ video, setPlaylistModalData, setFetchWatchlaterVideos, wa
                 : addToWatchlater(video);
               setFetchWatchlaterVideos((prev) => !prev);
             } else {
-              navigate("/login");
+              navigate("/login", { replace: true, state: { from: location } });
             }
           }}
           className={` ${
