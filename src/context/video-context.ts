@@ -1,18 +1,20 @@
 import { createContext, useContext, useEffect, useReducer, useState } from "react";
 import axios from "axios";
 import { videoReducer } from "../reducer";
+import { DefaultVideoContext, VideoState } from "./types";
 
-const VideoContext = createContext();
+const VideoContext = createContext<DefaultVideoContext | null>(null);
 
-const initialState = {
+const initialState: VideoState = {
   videos: [],
   default: [],
   filter: "All",
 };
 
-const VideoProvider = ({ children }) => {
+const VideoProvider = ({ children }: { children: JSX.Element }) => {
   const [videoState, videoDispatch] = useReducer(videoReducer, initialState);
   const [displayLoader, setDisplayLoader] = useState(false);
+
   useEffect(() => {
     (async () => {
       try {
@@ -27,8 +29,15 @@ const VideoProvider = ({ children }) => {
       }
     })();
   }, []);
+
   return (
-    <VideoContext.Provider value={{ videoDispatch, videoState, displayLoader, setDisplayLoader }}>
+    <VideoContext.Provider
+      value={{
+        videoDispatch,
+        videoState,
+        displayLoader,
+        setDisplayLoader,
+      }}>
       {children}
     </VideoContext.Provider>
   );

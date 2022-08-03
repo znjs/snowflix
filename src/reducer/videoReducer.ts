@@ -1,4 +1,6 @@
-const videoReducer = (state, action) => {
+import { Action, VideoState } from "./types";
+
+const videoReducer = (state: VideoState, action: Action) => {
   switch (action.type) {
     case "UPDATE_VIDEO":
       return {
